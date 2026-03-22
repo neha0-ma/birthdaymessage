@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Card</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f9f9f9;
+            min-height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* card */
+        .card {
+            width: 100%;
+            max-width: 380px;
+            padding: 30px 20px;
+            border: 5px solid #3498db;
+            border-radius: 15px;
+            background: #f3bcc0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        #name {
+            display: block;
+            font-weight: bold;
+            font-size: 2rem;
+            color: rgb(245, 45, 5);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            word-break: break-word;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* button */
+        button {
+            padding: 12px 20px;
+            font-size: 1rem;
+            background: black;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 220px;
+        }
+
+        /* hidden message */
+        #hiddenMessage {
+            display: none;
+            color: green;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            line-height: 1.5;
+            cursor: pointer;
+        }
+
+        /* balloon */
+        .balloon {
+            width: 60px;
+            height: 80px;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -100px;
+            animation: floatUp 6s linear infinite;
+            z-index: 1;
+        }
+
+        /* balloon string */
+        .string {
+            width: 2px;
+            height: 50px;
+            background: #444;
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* balloon animation */
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-110vh);
+                opacity: 0;
+            }
+        }
+
+        /* tablet */
+        @media (max-width: 768px) {
+            .card {
+                max-width: 340px;
+                padding: 25px 18px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            #name {
+                font-size: 1.7rem;
+            }
+
+            #hiddenMessage {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* mobile */
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+
+            .card {
+                max-width: 100%;
+                padding: 22px 15px;
+                border-width: 3px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            #name {
+                font-size: 1.4rem;
+            }
+
+            p {
+                font-size: 0.95rem;
+            }
+
+            button {
+                font-size: 0.95rem;
+                padding: 10px 16px;
+            }
+
+            #hiddenMessage {
+                font-size: 1rem;
+            }
+
+            .balloon {
+                width: 50px;
+                height: 70px;
+            }
+
+            .string {
+                height: 40px;
+                top: 70px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+
+        <h1>Happy Birthday 🎂</h1>
+        <span id="name"></span>
+        <p>To the best brother in the world</p>
+
+        <button id="wishButton">Click for Surprise</button>
+
+        <h2 id="hiddenMessage">
+            Hope your year is full of bugs that are easy to fix 🚀
+        </h2>
+
+    </div>
+
+    <script src="birthday.js"></script>
+
+</body>
+
+</html>
