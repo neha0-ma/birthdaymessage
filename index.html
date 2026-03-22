@@ -23,12 +23,11 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
+            position: relative;
         }
 
-        /* card */
         .card {
-            width: 100%;
-            max-width: 380px;
+            width: min(100%, 380px);
             padding: 30px 20px;
             border: 5px solid #3498db;
             border-radius: 15px;
@@ -39,14 +38,14 @@
         }
 
         h1 {
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 4vw, 2rem);
             margin-bottom: 12px;
         }
 
         #name {
             display: block;
             font-weight: bold;
-            font-size: 2rem;
+            font-size: clamp(1.3rem, 4vw, 2rem);
             color: rgb(245, 45, 5);
             text-transform: uppercase;
             margin-bottom: 10px;
@@ -54,15 +53,15 @@
         }
 
         p {
-            font-size: 1rem;
+            font-size: clamp(0.95rem, 2.5vw, 1rem);
             margin-bottom: 20px;
             color: #333;
+            line-height: 1.5;
         }
 
-        /* button */
         button {
             padding: 12px 20px;
-            font-size: 1rem;
+            font-size: clamp(0.95rem, 2.5vw, 1rem);
             background: black;
             color: white;
             border: none;
@@ -72,28 +71,26 @@
             max-width: 220px;
         }
 
-        /* hidden message */
         #hiddenMessage {
             display: none;
             color: green;
             margin-top: 20px;
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 3vw, 1.2rem);
             line-height: 1.5;
             cursor: pointer;
+            padding: 0 8px;
         }
 
-        /* balloon */
         .balloon {
             width: 60px;
             height: 80px;
             border-radius: 50%;
             position: absolute;
             bottom: -100px;
-            animation: floatUp 6s linear infinite;
+            animation: floatUp 6s linear forwards;
             z-index: 1;
         }
 
-        /* balloon string */
         .string {
             width: 2px;
             height: 50px;
@@ -104,7 +101,16 @@
             transform: translateX(-50%);
         }
 
-        /* balloon animation */
+        img {
+            display: none;
+            margin: 15px auto;
+            width: 300px;
+            height: 250px;
+            max-width: 100%;
+            /* add this line */
+            border-radius: 12px;
+        }
+
         @keyframes floatUp {
             0% {
                 transform: translateY(0);
@@ -117,57 +123,10 @@
             }
         }
 
-        /* tablet */
         @media (max-width: 768px) {
             .card {
-                max-width: 340px;
                 padding: 25px 18px;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            #name {
-                font-size: 1.7rem;
-            }
-
-            #hiddenMessage {
-                font-size: 1.1rem;
-            }
-        }
-
-        /* mobile */
-        @media (max-width: 480px) {
-            body {
-                padding: 15px;
-            }
-
-            .card {
-                max-width: 100%;
-                padding: 22px 15px;
-                border-width: 3px;
-            }
-
-            h1 {
-                font-size: 1.5rem;
-            }
-
-            #name {
-                font-size: 1.4rem;
-            }
-
-            p {
-                font-size: 0.95rem;
-            }
-
-            button {
-                font-size: 0.95rem;
-                padding: 10px 16px;
-            }
-
-            #hiddenMessage {
-                font-size: 1rem;
+                max-width: 340px;
             }
 
             .balloon {
@@ -180,6 +139,37 @@
                 top: 70px;
             }
         }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+
+            .card {
+                width: 100%;
+                padding: 22px 15px;
+                border-width: 3px;
+                border-radius: 12px;
+            }
+
+            button {
+                max-width: 100%;
+            }
+
+            .balloon {
+                width: 42px;
+                height: 58px;
+            }
+
+            .string {
+                height: 32px;
+                top: 58px;
+            }
+
+            img {
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
 
@@ -189,7 +179,7 @@
 
         <h1>Happy Birthday 🎂</h1>
         <span id="name"></span>
-        <p>To the best brother in the world</p>
+        <p>To the best brother 🤢😞 </p>
 
         <button id="wishButton">Click for Surprise</button>
 
@@ -197,6 +187,7 @@
             Hope your year is full of bugs that are easy to fix 🚀
         </h2>
 
+        <img src="./image (2).jpeg" alt="Birthday Image" style="display: none;">
     </div>
 
     <script src="birthday.js"></script>
