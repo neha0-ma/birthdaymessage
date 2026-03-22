@@ -1,6 +1,7 @@
 const button = document.getElementById("wishButton");
 const message = document.getElementById("hiddenMessage");
 let span = document.getElementById("name");
+let img = document.querySelector("img");
 
 const colors = ["red", "blue", "green", "yellow", "purple", "pink", "orange"];
 
@@ -38,6 +39,7 @@ button.addEventListener("click", function () {
   message.style.display = "block";
   button.style.display = "none";
   span.innerText = "Shubham";
+  img.style.display = "block";
 });
 
 /* when message clicked */
@@ -45,4 +47,5 @@ message.addEventListener("click", function () {
   message.style.display = "none";
   button.style.display = "block";
   button.style.margin = "auto";
+  img.style.display = "none";
 });
